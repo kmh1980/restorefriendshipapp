@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Friend Again?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #fdf6f8;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .yes { background-color: #b2f2bb; }
+    .okay { background-color: #ffe066; }
+    .no { background-color: #ffa8a8; }
+    p.message {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+<br>
+  <h2>Will you be my friend again?</h2>
+<br>
+  <div id="button-group">
+    <button class="yes" onclick="respond('yes')">Yes</button>
+    <button class="okay" onclick="respond('okay')">Okay</button>
+    <button class="no" onclick="respond('no')">No</button>
+  </div>
+
+  <p class="message" id="message"></p>
+
+  <script>
+    function respond(answer) {
+      const message = document.getElementById('message');
+      const buttons = document.getElementById('button-group');
+
+      if (answer === 'yes' || answer === 'okay') {
+        message.innerHTML = "I’m so happy you said yes. How are you? 🎉";
+        buttons.style.display = "none";  // hide buttons
+        alert("You jump up and down with joy! 🎉");
+      } else if (answer === 'no') {
+        message.innerHTML = "Okay, I respect your decision. I miss you. 😢<br><br>Retrying in 1 year... (symbolically)";
+        setTimeout(() => {
+          message.innerHTML = "Will you be my friend again?";
+        }, 4000);
+      } else {
+        message.innerHTML = "Hmm... I’ll wait and ask again later ⏳";
+      }
+    }
+  </script>
+
+</body>
+</html>
